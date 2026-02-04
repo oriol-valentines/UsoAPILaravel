@@ -90,10 +90,10 @@ Route::put('/animales/{id}', function (Request $request,string $id){
 Route::delete('/dueno/{id}', function (Request $request, string $id){
     $dueno = Dueno::find($id);
     if(!$dueno){
-        return response()->json(['Message' => 'user not Found', 404]);
+        return response()->json(['message' => 'Dueño no encontrado'], 404);
     }
     $dueno->delete();
-    return response()->json(['message' => 'Dueño eliminado'], 201);
+    return response()->json(['message' => 'Dueño eliminado'], 200);
 });
 
 //eliminar animal
@@ -103,7 +103,7 @@ Route::delete('/animal/{id}', function (Request $request, string $id){
         return response()->json(['message' => 'Animal no encontrado'], 404);
     }
     $animal->delete();
-    return response()->json(['message' => 'Animal eliminado'], 201);
+    return response()->json(['message' => 'Animal eliminado'], 200);
 });
 
 
